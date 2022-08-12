@@ -12,3 +12,39 @@ Explanation: 1st minimum: 1, 2nd minimum: 4, third minimum: 13
 
 
 --------------------------------*/
+
+#include<bits/stdc++.h>
+using namespace std;
+//Take Array Input:
+void inputArray(int array[], int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin>>array[i];
+    }
+}
+
+//Give Array Output:
+void outputArray(int array[], int n)
+{
+    for(int i=0; i<n; i++){
+        cout<<array[i]<<" ";
+    }
+    cout<<endl;
+}
+
+int main()
+{
+    int n, k;
+    cin>>n>>k;
+
+    int array[n];
+
+    inputArray(array, n);
+    sort(array, array+n);
+
+    cout<<k<<"'th minimum: "<<array[k-1]<<endl;
+    cout<<k<<"'th maximum: "<<array[n-k]<<endl;
+
+    return 0;
+}

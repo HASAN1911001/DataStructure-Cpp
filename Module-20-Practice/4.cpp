@@ -25,3 +25,57 @@ Sample output:
 
 
 --------------------------------*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+//Take Array Input:
+void inputArray(int array[], int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin>>array[i];
+    }
+}
+
+//Give Array Output:
+void outputArray(int array[], int n)
+{
+    for(int i=0; i<n; i++){
+        cout<<array[i]<<" ";
+    }
+    cout<<endl;
+}
+
+//Calculating Cumulative sum. 
+void prefix_sum(int array[], int n)
+{
+    for(int i=1; i<n; i++)
+    {
+        array[i] += array[i-1];
+    }
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int array[n];
+    inputArray(array, n);
+    outputArray(array, n);
+    prefix_sum(array, n);
+    outputArray(array, n);
+
+    int Q, L, R;
+    cin>>Q;
+
+    for(int i=0; i<Q; i++)
+    {
+        cin>>L>>R;
+        if(L==1) cout<<array[R-1];
+        else cout<<array[R-1] - array[L-2];
+        cout<<endl;
+    }
+
+    return 0;
+}

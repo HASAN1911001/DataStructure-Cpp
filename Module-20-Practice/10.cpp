@@ -5,5 +5,4 @@ For a sorted array, which of the following algorithms will take less time ? Expl
   ii)Insertion sort
  iii)Counting sort.
 
-
 --------------------------------*/

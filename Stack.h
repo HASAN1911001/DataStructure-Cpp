@@ -1,22 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+template<typename N>
 class Node{
 public: 
-    int value;
+    N value;
     Node* next;
     Node* prev;
 
-    Node(int val){
+    Node(N val){
         value = val;
         next = NULL;
         prev = NULL;
     }
 };
 
+template <typename S>
 class Stack{
-    Node * head;
-    Node * top;
+    Node <S> * head;
+    Node <S> * top;
     int count = 0;
 
 public: 
@@ -26,9 +28,9 @@ public:
         top = NULL;
     }
     //Push:
-     void push(int val)
+     void push(S val)
      {
-        Node* newNode = new Node(val);
+        Node <S>* newNode = new Node<S>(val);
         if(head == NULL)
         {
             head = top = newNode;
@@ -48,19 +50,20 @@ public:
     //Pop:
     int pop(void)
     {
-        Node * delNode;
+        Node <S> * delNode;
         delNode = top;
         int check = -1;
 
         if(head == NULL)
         {
             cout<<"Stack Underflow"<<endl;
-            return;
+            return check;
         }
         else if(head == top)
         {
             head = top = NULL;
             count--;
+            cout<<count<<endl;
         }
         else 
         {
@@ -87,12 +90,16 @@ public:
         return count;
     }
     //Top: 
-    int top()
+    S Top()
     {
+        S chk;
         if(top == NULL)
         {
+            int chk;
             cout<<"Thear is no element in this stack"<<endl;
         }
-        else return top->value;
+        else chk = top->value;
+
+        return chk;
     }
 };

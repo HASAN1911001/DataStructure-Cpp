@@ -53,9 +53,3 @@ int binarySearch(int arr[], int l, int r, int x)
     // not present
     return -1;
 }
-
-int main()
-{
-
-    return 0;
-}

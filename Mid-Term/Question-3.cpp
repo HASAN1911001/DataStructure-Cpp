@@ -33,7 +33,6 @@ int main()
             for(int k=0; k<=a; k++)
             {
                 sum += earnings[k] - expences[k];
-                cout<<"sum: "<<sum<<endl;
             }
             int b;
             if(sum >= 0) b = 1;

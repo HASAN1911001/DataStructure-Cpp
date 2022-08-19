@@ -23,17 +23,9 @@ int main()
             {
                 for(int l=0; l<m; l++)
                 {
-                    cout<<a[i][j]<<" "<<a[k][l]<<endl;
-                    if(i == k && l == j)
-                    {
-                         cout<<"Kicchu to ko"<<endl;
-                         continue;
-                    }
-                    if(a[i][j] == a[k][l])
-                    {
-                        cout<<"E kita re vai"<<endl;
-                        a[k][l] = -1;
-                    }
+                    if(i == k && l == j) continue;
+
+                    if(a[i][j] == a[k][l]) a[k][l] = -1;
                 }
             }
         }

@@ -26,11 +26,9 @@ int main()
             if((i==0 && j<m || i==n-1 && j>m) || (j==0 && i>m || j==n-1 && i<m) || i==m || j==m)
             {
                 sum += a[i][j];
-                cout<<"sum: "<<sum<<endl;
             }
         }
     }
-    // sum -= a[m][m];
 
     cout<<sum;
 

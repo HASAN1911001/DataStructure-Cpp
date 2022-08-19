@@ -19,10 +19,11 @@ int main()
     {
         for(int j=0; j<m; j++)
         {
-            for(int k=i; k<n; k++)
+            for(int k=0; k<n; k++)
             {
-                for(int l=j; l<m; l++)
+                for(int l=0; l<m; l++)
                 {
+                    cout<<a[i][j]<<" "<<a[k][l]<<endl;
                     if(i == k && l == j)
                     {
                          cout<<"Kicchu to ko"<<endl;

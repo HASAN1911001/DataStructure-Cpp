@@ -47,23 +47,25 @@ int main()
     // cout<<chk.first<<" "<<chk.second<<endl;
     // cout<<st.empty()<<endl;
 
-    Stack <person> st;
-    person a ("Hasan", 600.50);
-    person b ("Zisan", 1000.10);
-    person c ("Zakia", 500.50);
+    Stack <int> st;
+   
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    st.push(5);
+    st.push(6);
+    st.pop();
 
-    st.push(a);
-    st.push(b);
-    st.push(c);
 
     // while(!st.empty()){
     //     person printObj;
     //     printObj = st.pop();
     //     printObj.print();
     // }
-    person printObj;
-    printObj = st.Top();
-    printObj.print();
+    
+    int val = st.Mid();
+    cout<<val;
 
     return 0;
 }

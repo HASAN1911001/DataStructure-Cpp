@@ -72,18 +72,44 @@ int countLength(Node *& head)
 
 //Delation at Tail: 
 
-//Delation at a Specific Position: 
+//Deletion at a Specific Position: 
 
+void delateAtSpecific(Node *& head, int position)
+{
+    Node * temp = head;
+    int i = 1;
+    while(i<position-1) temp = temp->Next;
+    Node * delNode = temp->Next;
+    temp->Next = delNode->Next;
+    delete delNode;
+}
 //Delate by Value in Uniqued Valued Linked List: 
 
-//Reverse a Linear Linked List: 
-
+//Reverse nonRecersive: 
+Node *reverseNonRecersice(Node *& head)
+{
+    Node *prev = NULL;
+    Node * current = head;
+    if(head == NULL){
+        return head;
+    }
+        Node *next = head->Next;
+    while(true)
+    {
+        current->Next = prev;
+        prev = current;
+        current = next;
+        if(current == NULL) break;
+        next = next->Next;
+    }
+}
 //Doubly Linked List: 
 
 
 int main()
 {
     Node *head = NULL;
+
 
     int n;
     //Choice 1: Insert at Head

@@ -19,6 +19,7 @@ template <typename S>
 class Stack{
     Node <S> * head;
     Node <S> * top;
+    Node <S> * mid;
     int count = 0;
 
 public: 
@@ -26,6 +27,7 @@ public:
     {
         head = NULL;
         top = NULL;
+        mid = NULL;
     }
     //Push:
      void push(S val)
@@ -33,7 +35,7 @@ public:
         Node <S>* newNode = new Node<S>(val);
         if(head == NULL)
         {
-            head = top = newNode;
+            head = top= mid = newNode;
             count++;
             return;
         }
@@ -43,6 +45,7 @@ public:
             newNode->prev = top; 
             top = newNode;
             count++;
+            if(count%2 == 0) mid = mid->next;
             return;
         }
 
@@ -61,7 +64,7 @@ public:
         }
         else if(head == top)
         {
-            head = top = NULL;
+            head = top = mid = NULL;
             count--;
             cout<<count<<endl;
         }
@@ -70,6 +73,7 @@ public:
             top = delNode->prev;
             top->next = NULL;
             count--;
+            if(count%2 != 0) mid = mid->prev; 
         }
 
         check = delNode->value;
@@ -95,11 +99,17 @@ public:
         S chk;
         if(top == NULL)
         {
-            int chk;
             cout<<"Thear is no element in this stack"<<endl;
         }
         else chk = top->value;
 
         return chk;
+    }
+
+    //Mid:
+    S Mid()
+    {
+        S m = mid->value;
+        return m;
     }
 };

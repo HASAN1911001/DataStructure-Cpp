@@ -16,9 +16,26 @@ public:
     }
 };
 
+void invert(Node* root1, Node* root2);
+
+Node* invert_tree(Node* root)
+{
+    Node* root1 = root->left;
+    Node* root2 = root->right;
+
+    int temp = root1->data;
+    root1->data = root2->data;
+    root2->data = temp;
+
+    invert(root1->left, root2->right);
+    invert(root1->right, root2->left);
+ 
+
+    return root;
+}
+
 void invert(Node* root1, Node* root2)
 {
-    // If both trees are empty, then they are mirror images
     if (root1 == NULL && root2 == NULL)
         return;
     
@@ -71,7 +88,9 @@ int main()
     root->right->left = new Node(6);
     root->right->right = new Node(9);
 
-    invert(root->left, root->right);
+    printLevelOrder(root);
+    cout<<endl;
+    Node* invert_root = invert_tree(root);
     printLevelOrder(root);
     
 

@@ -15,30 +15,29 @@ public:
         right = NULL;
     }
 };
+int traverse(Node* root, int* tilt);
 
-int traverse(Node* root, int* tilt)
-{
-    if (!root)
-        return 0;
- 
-    // Compute tilts of left and right subtrees
-    // and find sums of left and right subtrees
-    int left = traverse(root->left, tilt);
-    int right = traverse(root->right, tilt);
- 
-    // Add current tilt to overall
-    *tilt += abs(left - right);
- 
-    // Returns sum of nodes under current tree
-    return left + right + root->data;
-}
-
-int Tilt(Node* root)
+int findTilt(Node* root)
 {
     int tilt = 0;
     traverse(root, &tilt);
     return tilt;
 }
+
+int traverse(Node* root, int* tilt)
+{
+    if (!root)
+        return 0;
+
+    int left = traverse(root->left, tilt);
+    int right = traverse(root->right, tilt);
+
+    *tilt += abs(left - right);
+ 
+    return left + right + root->data;
+}
+
+
 
 int main()
 {
@@ -47,6 +46,6 @@ int main()
     root->left = new Node(2);
     root->right = new Node(3);
 
-    cout << "The Tilt of whole tree is " << Tilt(root);
+    cout << "The Tilt of whole tree is " << findTilt(root);
     return 0;
 }

@@ -21,21 +21,17 @@ bool isSame(Node* root1, Node* root2)
 {
     //Leves:
     if (root1 == NULL && root2 == NULL)
-        return 1;
+        return true;
  
     //Root:
     if (root1 != NULL && root2 != NULL)
     {
-        return
-        (
-            root1->data == root2->data &&
-            isSame(root1->left, root2->left) &&
-            isSame(root1->right, root2->right)
-        );
+        if( root1->data == root2->data && isSame(root1->left, root2->left) && isSame(root1->right, root2->right))
+            return true;
     }
      
     //Different Structures
-    return 0;
+    return false;
 }
 
 int main()
@@ -50,7 +46,7 @@ int main()
     root2->left = new Node(2);
     root2->right = new Node(3);
     root2->left->left = new Node(4);
-    root2->left->left->left = new Node(5);
+    root2->left->right = new Node(5);
  
     if(isSame(root1, root2))
         cout << "Both tree are identical.";

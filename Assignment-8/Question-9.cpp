@@ -18,29 +18,19 @@ public:
  
 // Function to check If the tree
 // is uni-valued or not
-bool isUnivalTree(Node* root)
+bool is_unival(Node* root)
 {
  
-    // If tree is an empty tree
-    if (!root) {
-        return true;
-    }
+    if (root == NULL) return true;
+
+    if (root->left != NULL && root->data != root->left->data) return false;
  
-    // If all the nodes on the left subtree
-    // have not value equal to root node
-    if (root->left != NULL
-        && root->data != root->left->data)
-        return false;
+    if (root->right != NULL && root->data != root->right->data) return false;
  
-    // If all the nodes on the left subtree
-    // have not value equal to root node
-    if (root->right != NULL
-        && root->data != root->right->data)
-        return false;
- 
-    // Recurse on left and right subtree
-    return isUnivalTree(root->left)
-           && isUnivalTree(root->right);
+    if(is_unival(root->left) && is_unival(root->right))   return true;
+
+    return false;
+    
 }
  
 // Driver Code
@@ -61,7 +51,7 @@ int main()
     root->left->right = new Node(1);
     root->right->right = new Node(1);
  
-    if (isUnivalTree(root) == 1) {
+    if (is_unival(root) == 1) {
  
         cout << "YES";
     }

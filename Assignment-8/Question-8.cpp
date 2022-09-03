@@ -16,22 +16,16 @@ public:
     }
 };
 
-  
-/* Function to print the average value of the
-   nodes on each level */
-void averageOfLevels(Node* root)
+
+ void average_level(Node* root)
 {
-    vector<float> res;
-  
-    // Traversing level by level
+    //vector<float> res;
+
     queue<Node*> q;
     q.push(root);
   
     while (!q.empty()) {
-  
-        // Compute sum of nodes and
-        // count of nodes in current
-        // level.
+
         int sum = 0, count = 0;
         queue<Node*> temp;
         while (!q.empty()) {
@@ -60,10 +54,10 @@ int main()
   
     Node* root = NULL;
     root = new Node(3);
-    root->left = new Node(9);
+    root->left = new Node(10);
     root->right = new Node(20);
     root->right->left = new Node(15);
     root->right->right = new Node(7);
-    averageOfLevels(root);
+    average_level(root);
     return 0;
 }

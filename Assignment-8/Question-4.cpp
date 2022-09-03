@@ -16,9 +16,31 @@ public:
     }
 };
 
+//Prototype of helper function
+bool isMirror(Node* root1, Node* root2);
+
+//This is required function
+bool isSymmetric(Node* root)
+{
+    Node* root1 = root->left;
+    Node* root2 = root->right;
+
+    if (root1 == NULL && root2 == NULL)
+        return true;
+ 
+    if (root1 && root2 && root1->data == root2->data)
+    {
+        if(isMirror(root1->left, root2->right) && isMirror(root1->right, root2->left))
+            return true;
+    }
+ 
+
+    return false;
+}
+
 bool isMirror(Node* root1, Node* root2)
 {
-    // If both trees are empty, then they are mirror images
+
     if (root1 == NULL && root2 == NULL)
         return true;
  
@@ -34,13 +56,11 @@ int main()
 {
     Node* root = new Node(1);
     root->left = new Node(2);
-    root->right = new Node(2);
-    root->left->left = new Node(3);
-    root->left->right = new Node(4);
-    root->right->left = new Node(4);
+    root->right = new Node(3);
+    root->left->right = new Node(2);
     root->right->right = new Node(3);
 
-    bool mirror = isMirror(root->left, root->right);
+    bool mirror =  isSymmetric(root);
     cout<<mirror;
 
     return 0;

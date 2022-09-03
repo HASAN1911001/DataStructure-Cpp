@@ -16,36 +16,27 @@ public:
     }
 };
  
-// function to print the zigzag traversal
-void zizagtraversal(struct Node* root)
+
+void zigzag_order(Node* root)
 {
-    // if null then return
-    if (!root)
+    if (root == NULL)
         return;
  
-    // declare two stacks
-    stack<struct Node*> currentlevel;
-    stack<struct Node*> nextlevel;
+    stack<Node*> currentlevel;
+    stack<Node*> nextlevel;
  
-    // push the root
     currentlevel.push(root);
- 
-    // check if stack is empty  
+   
     bool lefttoright = true;
     while (!currentlevel.empty()) {
  
-        // pop out of stack
-        struct Node* temp = currentlevel.top();
+        Node* temp = currentlevel.top();
         currentlevel.pop();
  
-        // if not null
         if (temp) {
  
-            // print the data in it
             cout << temp->data << " ";
  
-            // store data according to current
-            // order.
             if (lefttoright) {
                 if (temp->left)
                     nextlevel.push(temp->left);
@@ -72,16 +63,14 @@ void zizagtraversal(struct Node* root)
 int main()
 {
     // create tree
-    struct Node* root = new Node(1);
-    root->left = new Node(2);
-    root->right = new Node(3);
-    root->left->left = new Node(7);
-    root->left->right = new Node(6);
-    root->right->left = new Node(5);
-    root->right->right = new Node(4);
+    Node* root = new Node(3);
+    root->left = new Node(9);
+    root->right = new Node(20);
+    root->right->left = new Node(15);
+    root->right->right = new Node(7);
     cout << "ZigZag Order traversal of binary tree is \n";
  
-    zizagtraversal(root);
+    zigzag_order(root);
  
     return 0;
 }
